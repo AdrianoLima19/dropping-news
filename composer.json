@@ -1,0 +1,21 @@
+{
+  "name": "adriano/dropping-news",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    },
+    "files": []
+  },
+  "authors": [
+    {
+      "name": "AdrianoLima19",
+      "email": "adrianolima.dev@gmail.com",
+      "role": "developer",
+      "homepage": "https://adriano-lima.dev.br/"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {}
+}

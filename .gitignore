@@ -8,3 +8,5 @@ vendor
 
 .vscode/*
 !.vscode/extensions.json
+
+**/*.html

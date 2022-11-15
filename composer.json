@@ -6,7 +6,10 @@
     "psr-4": {
       "App\\": "src/"
     },
-    "files": []
+    "files": [
+      "src/models.php",
+      "src/helpers.php"
+    ]
   },
   "authors": [
     {

@@ -23,6 +23,11 @@ if (!function_exists('DBO')) {
           "{$driver}:host={$host};port={$port};dbname={$database}",
           $username,
           $password,
+          [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+            PDO::ATTR_CASE => PDO::CASE_NATURAL
+          ]
         );
       } catch (\Throwable $th) {
         throw $th;
@@ -155,5 +160,57 @@ if (!function_exists('view')) {
     }
 
     require_once $template;
+  }
+}
+
+if (!function_exists('warning')) {
+  /**
+   * @param  string|Stringable $message
+   * @param  array             $context
+   *
+   * @return void
+   */
+  function warning(string|Stringable $message, array $context = [])
+  {
+    \App\Log::pushLog('warning', $message, $context);
+  }
+}
+
+if (!function_exists('error')) {
+  /**
+   * @param  string|Stringable $message
+   * @param  array             $context
+   *
+   * @return void
+   */
+  function error(string|Stringable $message, array $context = [])
+  {
+    \App\Log::pushLog('error', $message, $context);
+  }
+}
+
+if (!function_exists('critical')) {
+  /**
+   * @param  string|Stringable $message
+   * @param  array             $context
+   *
+   * @return void
+   */
+  function critical(string|Stringable $message, array $context = [])
+  {
+    \App\Log::pushLog('critical', $message, $context);
+  }
+}
+
+if (!function_exists('alert')) {
+  /**
+   * @param  string|Stringable $message
+   * @param  array             $context
+   *
+   * @return void
+   */
+  function alert(string|Stringable $message, array $context = [])
+  {
+    \App\Log::pushLog('alert', $message, $context);
   }
 }

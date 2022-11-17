@@ -1,0 +1,67 @@
+.custom-name-card {
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+}
+
+form.w-adjustable {
+  width: 85%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+
+  @media (min-width: 992px) {
+    width: 25%;
+  }
+}
+
+.was-validated .no-validate:valid ~ .form-check-label,
+.no-validate.is-valid ~ .form-check-label {
+  color: inherit;
+}
+.was-validated .no-validate:valid,
+.no-validate.is-valid {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+header.position-absolute {
+  position: relative !important;
+  @media (min-width: 768px) {
+    position: absolute !important;
+  }
+}
+
+.page-link {
+  i {
+    line-height: inherit;
+  }
+}
+
+.chevrons {
+  position: relative;
+}
+
+.fa-chevron-right {
+  &.chevrons {
+    &::after {
+      position: absolute;
+      inset: 0;
+      transform: translateX(70%);
+      content: "\f054";
+    }
+  }
+}
+.fa-chevron-left {
+  &.chevrons {
+    &::after {
+      position: absolute;
+      inset: 0;
+      transform: translateX(-70%);
+      content: "\f053";
+    }
+  }
+}

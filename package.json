@@ -9,7 +9,6 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "feather-icons": "^4.29.0",
-    "gridicons": "^3.4.0",
     "postcss": "^8.4.19",
     "sass": "^1.56.1",
     "vite": "^3.2.3"
@@ -18,7 +17,7 @@
     "@popperjs/core": "^2.11.6",
     "autoprefixer": "^10.4.13",
     "bootstrap": "^5.2.2",
-    "codemirror": "^6.0.1",
+    "codemirror": "^5.65.9",
     "jquery": "^3.6.1",
     "sanitize-html": "^2.7.3",
     "showdown": "^2.1.0"

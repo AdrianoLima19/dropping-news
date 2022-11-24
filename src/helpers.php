@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Http;
+
 if (!function_exists('DBO')) {
   /**
    * @return \PDO|null
@@ -212,5 +214,44 @@ if (!function_exists('alert')) {
   function alert(string|Stringable $message, array $context = [])
   {
     \App\Log::pushLog('alert', $message, $context);
+  }
+}
+
+if (!function_exists('fallback')) {
+  /**
+   * @param  Http $error
+   *
+   * @return void
+   */
+  function fallback(Http $error = null)
+  {
+    view(null, 'error', ['error' => $error]);
+  }
+}
+
+if (!function_exists('csrf_input')) {
+  /**
+   * @return void
+   */
+  function csrf_input()
+  {
+    $_SESSION['csrf_token'] = md5(uniqid((string) rand(), true));
+    echo '<input type="hidden" class="form-control mb-5" name="csrf" value="' . $_SESSION["csrf_token"] . '">';
+  }
+}
+
+if (!function_exists('csrf_verify')) {
+  /**
+   * @param  array $request
+   *
+   * @return bool
+   */
+  function csrf_verify(array $request): bool
+  {
+    if (empty($_SESSION['csrf_token'])) return false;
+    if (empty($request['csrf'])) return false;
+    if ($request['csrf'] != $_SESSION['csrf_token']) return false;
+
+    return true;
   }
 }

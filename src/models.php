@@ -84,6 +84,14 @@ class Paginator
   }
 
   /**
+   * Get the value of pages
+   */
+  public function getPages()
+  {
+    return $this->pages;
+  }
+
+  /**
    * @return string|null
    */
   public function render(): ?string
